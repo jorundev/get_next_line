@@ -6,7 +6,7 @@
 /*   By: hroussea <hroussea@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 23:49:28 by hroussea          #+#    #+#             */
-/*   Updated: 2021/01/20 15:37:42 by hroussea         ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 15:59:07 by hroussea         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,15 @@ int		buf_add(struct s_buf *buf, char c)
 		buf->buf = tmp;
 	}
 	buf->buf[buf->last++] = c;
+	return (1);
+}
+
+int		check_buffer_size(char **line)
+{
+	if (BUFFER_SIZE < 1)
+	{
+		*line = 0;
+		return (0);
+	}
 	return (1);
 }

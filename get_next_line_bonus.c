@@ -6,7 +6,7 @@
 /*   By: hroussea <hroussea@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 23:49:06 by hroussea          #+#    #+#             */
-/*   Updated: 2021/01/20 15:43:33 by hroussea         ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 16:04:03 by hroussea         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int				get_next_line(int fd, char **line)
 	struct s_buf		buf;
 	int					tmp;
 
+	if (!check_buffer_size(line) || fd < 0 || read(fd, NULL, 0) == -1 || !line)
+		return (-1);
 	*line = malloc(9);
 	if (!*line)
 		return (gnl_clr_fd(fd, &gnl[0], -1));

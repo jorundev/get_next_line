@@ -6,7 +6,7 @@
 /*   By: hroussea <hroussea@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 23:49:03 by hroussea          #+#    #+#             */
-/*   Updated: 2021/01/20 15:37:13 by hroussea         ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 15:58:57 by hroussea         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int					read_chunk(struct s_gnl *gnl, struct s_buf *buf);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 int					buf_add(struct s_buf *buf, char c);
 int					gnl_clr_fd(int fd, struct s_gnl *gnl, int ret);
+int					check_buffer_size(char **line);
 
 #endif
