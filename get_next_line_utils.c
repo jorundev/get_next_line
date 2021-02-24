@@ -6,7 +6,7 @@
 /*   By: hroussea <hroussea@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 23:49:28 by hroussea          #+#    #+#             */
-/*   Updated: 2021/01/20 15:58:45 by hroussea         ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 13:37:14 by hroussea         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-int		gnl_clr_fd(int fd, struct s_gnl *gnl, int ret)
+int	gnl_clr_fd(int fd, struct s_gnl *gnl, int ret)
 {
 	gnl[fd].is_valid = 0;
 	free(gnl[fd].buf);
 	return (ret);
 }
 
-int		buf_add(struct s_buf *buf, char c)
+int	buf_add(struct s_buf *buf, char c)
 {
 	char	*tmp;
 	int		realloc_size;
@@ -63,7 +63,7 @@ int		buf_add(struct s_buf *buf, char c)
 	return (1);
 }
 
-int		check_buffer_size(char **line)
+int	check_buffer_size(char **line)
 {
 	if (BUFFER_SIZE < 1)
 	{

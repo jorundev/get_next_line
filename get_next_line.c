@@ -6,14 +6,14 @@
 /*   By: hroussea <hroussea@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 23:49:06 by hroussea          #+#    #+#             */
-/*   Updated: 2021/01/20 16:04:00 by hroussea         ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 13:36:44 by hroussea         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <limits.h>
 
-void			init_buf(char **line, struct s_buf *buf)
+void	init_buf(char **line, struct s_buf *buf)
 {
 	buf->buf = *line;
 	buf->len = 8;
@@ -21,7 +21,7 @@ void			init_buf(char **line, struct s_buf *buf)
 	(*line)[buf->len] = 0;
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static struct s_gnl	gnl[OPEN_MAX];
 	struct s_gnl		*cur;
@@ -48,7 +48,7 @@ int				get_next_line(int fd, char **line)
 	return (1);
 }
 
-int				gnl_constr(int fd, struct s_gnl *ret)
+int	gnl_constr(int fd, struct s_gnl *ret)
 {
 	ret->buf = malloc(BUFFER_SIZE);
 	if (!ret->buf)
@@ -69,7 +69,7 @@ struct s_gnl	*gnl_get(int fd, struct s_gnl *gnl)
 	return (&gnl[fd]);
 }
 
-int				read_chunk(struct s_gnl *gnl, struct s_buf *buf)
+int	read_chunk(struct s_gnl *gnl, struct s_buf *buf)
 {
 	while (1)
 	{
@@ -81,8 +81,8 @@ int				read_chunk(struct s_gnl *gnl, struct s_buf *buf)
 			if (gnl->last_rd == 0 || gnl->last_rd == -1)
 				return (gnl->last_rd);
 		}
-		while (gnl->buf_p_off - gnl->buf < gnl->last_rd &&
-				*gnl->buf_p_off != '\n')
+		while (gnl->buf_p_off - gnl->buf < gnl->last_rd
+			&& *gnl->buf_p_off != '\n')
 			buf_add(buf, *gnl->buf_p_off++);
 		if (gnl->buf_p_off - gnl->buf >= gnl->last_rd)
 		{
