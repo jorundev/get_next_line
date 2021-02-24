@@ -6,12 +6,16 @@
 /*   By: hroussea <hroussea@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 23:49:03 by hroussea          #+#    #+#             */
-/*   Updated: 2021/01/20 15:58:54 by hroussea         ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 13:39:10 by hroussea         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
 # include <unistd.h>
 # include <stdlib.h>
